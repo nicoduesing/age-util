@@ -48,11 +48,17 @@ export const calculateAgesList = (
 
 const MAX_YEARS = 150;
 
+export type Celebration = {
+  unit: string;
+  amount: number;
+  date: Temporal.PlainDate;
+};
+
 export const calculateCelebrations = (
   birthDate: Temporal.PlainDate,
   minYears: number,
   maxYears: number,
-): { unit: string; amount: number; date: Temporal.PlainDate }[] => {
+): Celebration[] => {
   if (minYears < 0) {
     throw new Error("minYears must not be negative, but was " + minYears);
   }
